@@ -1,30 +1,9 @@
 import ThreadStatusRow from "./ThreadStatusRow";
-import Tag from "./Tag";
+import Tag from "../UI/Tag";
 import { useState, useEffect } from "react";
 import { normalizeText } from "../utils/textNormalization";
-import {
-  IoCloseCircleOutline,
-  IoCheckmarkCircleOutline,
-  IoChevronDown,
-} from "react-icons/io5";
-
-const STATUS_CONFIG = {
-  FAILED: {
-    borderColor: "border-noma-red",
-    icon: IoCloseCircleOutline,
-    iconColor: "text-noma-red",
-  },
-  PASSED: {
-    borderColor: "border-noma-green",
-    icon: IoCheckmarkCircleOutline,
-    iconColor: "text-noma-green",
-  },
-  default: {
-    borderColor: "border-noma-light-gray",
-    icon: null,
-    iconColor: "",
-  },
-};
+import { IoChevronDown } from "react-icons/io5";
+import { STATUS_CONFIG } from "../constants/statusConfig";
 
 export default function TechniqueCard({ test, expandAll, onToggle }) {
   const [isExpanded, setIsExpanded] = useState(false);

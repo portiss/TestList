@@ -1,7 +1,4 @@
-const tabs = [
-  { id: "PROMPT_INJECTION", label: "Prompt Injection" },
-  { id: "JAILBREAK", label: "Jailbreak" },
-];
+import { tabs } from "../constants/tabConfig";
 
 export default function Tabs({ activeTab, setActiveTab }) {
   return (

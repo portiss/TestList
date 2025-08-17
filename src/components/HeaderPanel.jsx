@@ -1,4 +1,4 @@
-import Tabs from "./Tabs";
+import Tabs from "../UI/Tabs";
 import Metadata from "./Metadata";
 
 export default function HeaderPanel({ activeTab, setActiveTab, data }) {

@@ -1,14 +1,6 @@
-export default function Metadata({ data }) {
-  const formatDate = (dateString) => {
-    return new Date(dateString)
-      .toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-      })
-      .replace(/\//g, ".");
-  };
+import { formatDate } from "../utils/dateUtils";
 
+export default function Metadata({ data }) {
   const metadataItems = [
     { key: "Date", value: formatDate(data.createdAt) },
     { key: "Test Result ID", value: data.id },
