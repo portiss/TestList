@@ -1,10 +1,10 @@
 import { formatDate } from "../utils/dateUtils";
 
-export default function Metadata({ data }) {
+export default function Metadata({ createdAt, id, assetName }) {
   const metadataItems = [
-    { key: "Date", value: formatDate(data.createdAt) },
-    { key: "Test Result ID", value: data.id },
-    { key: "Model Name", value: data.asset.name },
+    { key: "Date", value: formatDate(createdAt) },
+    { key: "Test Result ID", value: id },
+    { key: "Model Name", value: assetName },
   ];
 
   return (

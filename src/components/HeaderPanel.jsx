@@ -5,7 +5,11 @@ export default function HeaderPanel({ activeTab, setActiveTab, data }) {
   return (
     <div className="mb-8">
       <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
-      <Metadata data={data} />
+      <Metadata
+        createdAt={data.createdAt}
+        id={data.id}
+        assetName={data.asset.name}
+      />
     </div>
   );
 }
