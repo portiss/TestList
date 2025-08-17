@@ -1,6 +1,6 @@
+import { useState, useEffect, useCallback, useMemo, memo } from "react";
 import TechniqueCardHeader from "./TechniqueCardHeader";
 import TechniqueCardContent from "./TechniqueCardContent";
-import { useState, useEffect, useCallback, useMemo, memo } from "react";
 
 const calculateTestStatus = (threadStatusesObj, originalStatus) => {
   const statuses = Object.values(threadStatusesObj);

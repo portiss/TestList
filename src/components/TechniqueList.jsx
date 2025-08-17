@@ -1,5 +1,5 @@
-import TechniqueCard from "./TechniqueCard/TechniqueCard";
 import { useState, useEffect, useMemo, useCallback } from "react";
+import TechniqueCard from "./TechniqueCard/TechniqueCard";
 
 export default function TechniqueList({ results, filters }) {
   const [expandAll, setExpandAll] = useState(false);
@@ -13,7 +13,6 @@ export default function TechniqueList({ results, filters }) {
     );
   }, [results, filters]);
 
-  // Update expandAll state when all cards are expanded
   useEffect(() => {
     if (expandedCount === filtered.length && filtered.length > 0) {
       setExpandAll(true);

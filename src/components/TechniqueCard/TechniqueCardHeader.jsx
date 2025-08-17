@@ -1,7 +1,7 @@
+import { memo } from "react";
 import { normalizeText } from "../../utils/textNormalization";
 import { IoChevronDown } from "react-icons/io5";
 import { STATUS_CONFIG } from "../../constants/statusConfig";
-import { memo } from "react";
 
 function TechniqueCardHeader({ test, testStatus, isExpanded, onToggle }) {
   const getStatusConfig = (status) => {

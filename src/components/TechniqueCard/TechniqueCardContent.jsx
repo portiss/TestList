@@ -1,7 +1,7 @@
+import { memo } from "react";
 import ThreadStatusRow from "../ThreadStatusRow";
 import Tag from "../../UI/Tag";
 import { normalizeText } from "../../utils/textNormalization";
-import { memo } from "react";
 
 function TechniqueCardContent({ test, onThreadStatusChange }) {
   const renderDetailSection = (title, content) => (
