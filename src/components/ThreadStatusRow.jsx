@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo, useCallback } from "react";
 
-export default function ThreadStatusRow({ thread, onStatusChange }) {
+function ThreadStatusRow({ thread, onStatusChange }) {
   const [status, setStatus] = useState(thread.status);
 
   // Reset status when thread prop changes (for tab switching)
@@ -8,10 +8,13 @@ export default function ThreadStatusRow({ thread, onStatusChange }) {
     setStatus(thread.status);
   }, [thread.status, thread.id]);
 
-  const handleStatusChange = (newStatus) => {
-    setStatus(newStatus);
-    onStatusChange?.(thread.id, newStatus);
-  };
+  const handleStatusChange = useCallback(
+    (newStatus) => {
+      setStatus(newStatus);
+      onStatusChange?.(thread.id, newStatus);
+    },
+    [thread.id, onStatusChange]
+  );
 
   const statusOptions = [
     {
@@ -54,3 +57,5 @@ export default function ThreadStatusRow({ thread, onStatusChange }) {
     </div>
   );
 }
+
+export default memo(ThreadStatusRow);

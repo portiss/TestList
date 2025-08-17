@@ -1,8 +1,9 @@
 import ThreadStatusRow from "../ThreadStatusRow";
 import Tag from "../../UI/Tag";
 import { normalizeText } from "../../utils/textNormalization";
+import { memo } from "react";
 
-export default function TechniqueCardContent({ test, onThreadStatusChange }) {
+function TechniqueCardContent({ test, onThreadStatusChange }) {
   const renderDetailSection = (title, content) => (
     <div>
       <p className="font-semibold">{title}:</p>
@@ -35,3 +36,5 @@ export default function TechniqueCardContent({ test, onThreadStatusChange }) {
     </div>
   );
 }
+
+export default memo(TechniqueCardContent);
