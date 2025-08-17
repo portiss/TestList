@@ -2,7 +2,7 @@ import Select from "../UI/Select";
 import { Button } from "@headlessui/react";
 
 const severityOptions = [
-  { value: null, label: "Severity" },
+  { value: null, label: "Severity" }, // All
   { value: "CRITICAL", label: "Critical" },
   { value: "HIGH", label: "High" },
   { value: "MEDIUM", label: "Medium" },
@@ -10,7 +10,7 @@ const severityOptions = [
 ];
 
 const resultOptions = [
-  { value: null, label: "Result" },
+  { value: null, label: "Result" }, // All
   { value: "PASSED", label: "Passed" },
   { value: "FAILED", label: "Failed" },
 ];
