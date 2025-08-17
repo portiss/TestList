@@ -1,7 +1,12 @@
 import { useState } from "react";
 
-export default function ThreadStatusRow({ thread }) {
+export default function ThreadStatusRow({ thread, onStatusChange }) {
   const [status, setStatus] = useState(thread.status);
+
+  const handleStatusChange = (newStatus) => {
+    setStatus(newStatus);
+    onStatusChange?.(thread.id, newStatus);
+  };
 
   const statusOptions = [
     {
@@ -35,7 +40,7 @@ export default function ThreadStatusRow({ thread }) {
           <button
             key={option.value}
             className={getButtonClasses(option)}
-            onClick={() => setStatus(option.value)}
+            onClick={() => handleStatusChange(option.value)}
           >
             {option.label}
           </button>
