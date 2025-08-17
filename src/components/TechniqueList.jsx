@@ -1,15 +1,17 @@
-import TechniqueCard from "./TechniqueCard";
-import { useState, useEffect } from "react";
+import TechniqueCard from "./TechniqueCard/TechniqueCard";
+import { useState, useEffect, useMemo, useCallback } from "react";
 
 export default function TechniqueList({ results, filters }) {
   const [expandAll, setExpandAll] = useState(false);
   const [expandedCount, setExpandedCount] = useState(0);
 
-  const filtered = results.filter(
-    (test) =>
-      (!filters.severity || test.severity === filters.severity) &&
-      (!filters.result || test.status === filters.result)
-  );
+  const filtered = useMemo(() => {
+    return results.filter(
+      (test) =>
+        (!filters.severity || test.severity === filters.severity) &&
+        (!filters.result || test.status === filters.result)
+    );
+  }, [results, filters]);
 
   // Update expandAll state when all cards are expanded
   useEffect(() => {
@@ -20,15 +22,15 @@ export default function TechniqueList({ results, filters }) {
     }
   }, [expandedCount, filtered.length]);
 
-  const handleExpandAll = () => {
+  const handleExpandAll = useCallback(() => {
     const newExpandAll = !expandAll;
     setExpandAll(newExpandAll);
     setExpandedCount(newExpandAll ? filtered.length : 0);
-  };
+  }, [expandAll, filtered.length]);
 
-  const handleCardToggle = (isExpanded) => {
+  const handleCardToggle = useCallback((isExpanded) => {
     setExpandedCount((prev) => prev + (isExpanded ? 1 : -1));
-  };
+  }, []);
 
   return (
     <div className="px-16">
@@ -40,7 +42,7 @@ export default function TechniqueList({ results, filters }) {
       </div>
       {filtered.map((test, idx) => (
         <TechniqueCard
-          key={idx}
+          key={`${test.techniqueType}-${test.techniqueSubType}-${idx}`}
           test={test}
           expandAll={expandAll}
           onToggle={handleCardToggle}

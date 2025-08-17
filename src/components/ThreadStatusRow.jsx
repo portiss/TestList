@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ThreadStatusRow({ thread, onStatusChange }) {
   const [status, setStatus] = useState(thread.status);
+
+  // Reset status when thread prop changes (for tab switching)
+  useEffect(() => {
+    setStatus(thread.status);
+  }, [thread.status, thread.id]);
 
   const handleStatusChange = (newStatus) => {
     setStatus(newStatus);
