@@ -1,0 +1,26 @@
+@config "../tailwind.config.js";
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply text-sm text-noma-gray;
+    padding: 20px;
+  }
+
+  button {
+    @apply text-noma-gray cursor-pointer;
+  }
+
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #bdc3c7;
+    border-radius: 6px;
+  }
+}
